@@ -40,7 +40,28 @@ dfEncoded = dfTransactionPivot.applymap(encodeMap)
 dfCommonBaskets = apriori(dfEncoded.astype('bool'), min_support=0.001, use_colnames=True)
 dfBasketAssocRules = association_rules(dfCommonBaskets, metric="lift")
 dfBasketAssocRules.sort_values(["support","confidence","lift"], axis=0, ascending=False)
-print(dfBasketAssocRules.head())
+#print(dfBasketAssocRules.head())
+
+#Join Data Frame to recommend next product by CRMID
+dfPredicted = dfProductPurchases.sort_values(by=['crmid','date'], ascending=False)
+dfPredicted.rename(columns={'sku':'lastSKU'}, inplace=True)
+
+dfBasketRulesCP = pd.DataFrame(dfBasketAssocRules, copy=True)
+dfBasketRulesCP["antecedents"] = dfBasketRulesCP["antecedents"].apply(lambda x: list(x)[0]).astype("unicode")
+dfBasketRulesCP["consequents"] = dfBasketRulesCP["consequents"].apply(lambda x: list(x)[0]).astype("unicode")
+dfBasketRulesCP.rename(columns={'antecedents':'lastSKU'}, inplace=True)
+dfBasketRulesCP.rename(columns={'consequents':'nextSKU'}, inplace=True)
+
+dfPredicted = pd.merge(dfPredicted, dfBasketRulesCP, on='lastSKU', how='inner')
+dfPredicted.drop_duplicates('crmid', keep='first', inplace=True)
+dfPredicted = dfPredicted.dropna()
+dfPredicted.drop(columns=['single_transaction', 'antecedent support','consequent support','leverage','conviction','date'], inplace=True)
+dfPredicted.sort_values(["crmid"], axis=0, ascending=False)
+
+dfPredicted.to_csv('/Users/coers/datascience/dfPredicted.csv', encoding='utf-8', index=False, header=True)
+
+print("dfPredicted: ")
+print(dfPredicted.head(500))
 
 ### PRINT TIME TRACKING ###
 endtime = time.time()
