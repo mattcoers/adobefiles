@@ -1,0 +1,7 @@
+{
+    "org_id": "[Org ID]",
+    "client_id": "[Client ID / API Key]",
+    "tech_id": "[Tech ID]@techacct.adobe.com",
+    "secret": "[Secret]",
+    "pathToKey": "/path/to/private/key/private.key"
+}
