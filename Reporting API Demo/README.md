@@ -1,6 +1,6 @@
 # Reporting API Demo for Python 
 
-[![Watch the video](https://i.postimg.cc/dqgbxPgw/screenshot.png)](https://youtu.be/ObIxEVpHFeg "Title of Video")
+[![Watch the video](https://i.postimg.cc/Wpq6YxLL/screenshot.png)](https://youtu.be/ObIxEVpHFeg "Title of Video")
 
 ## Steps for setting up an API Connection in Python
 - Set up API Project
