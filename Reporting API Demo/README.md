@@ -1,5 +1,12 @@
+# Reporting API Demo for Python 
 
-Documentation for Customer Journey Analytics APIs
+## Steps for setting up an API Connection in Python
+- Set up API Project
+- Obtain the API Access Token, API Key, and IMS Org ID
+- Create a report in CJA and use the Debugger to obtain the JSON Query
+- Use the code in this Repo to execute the query
+
+## Documentation for Customer Journey Analytics APIs
 - https://developer.adobe.com/cja-apis/docs/
 - https://developer.adobe.com/cja-apis/docs/getting-started/
 - https://developer.adobe.com/cja-apis/docs/endpoints/
