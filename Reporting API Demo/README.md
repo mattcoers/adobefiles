@@ -1,5 +1,7 @@
 # Reporting API Demo for Python 
 
+[screenshot.png](https://postimg.cc/gXjH5gLV)
+
 ## Steps for setting up an API Connection in Python
 - Set up API Project
 - Obtain the API Access Token, API Key, and IMS Org ID
