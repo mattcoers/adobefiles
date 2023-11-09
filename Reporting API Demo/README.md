@@ -9,6 +9,7 @@
 - Use the code in this Repo to execute the query
 
 ## Documentation for Customer Journey Analytics APIs
+- https://helpx.adobe.com/enterprise/using/manage-developers.html
 - https://developer.adobe.com/cja-apis/docs/
 - https://developer.adobe.com/cja-apis/docs/getting-started/
 - https://developer.adobe.com/cja-apis/docs/endpoints/
